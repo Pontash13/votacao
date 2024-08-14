@@ -6,7 +6,6 @@ import org.example.Modelo.Voto;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.Serial;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 
@@ -18,7 +17,7 @@ import org.jfree.data.general.PieDataset;
 
 
 public class Grafico extends JFrame {
-    @Serial
+
     private static final long serialVersionUID = 1L;
     VotoUtil v = new VotoUtil();
 

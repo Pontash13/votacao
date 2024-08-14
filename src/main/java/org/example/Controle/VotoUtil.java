@@ -33,18 +33,18 @@ public class VotoUtil {
     public ArrayList<Voto> retorna_numero_votos() {
         ArrayList<Voto> lista = new ArrayList<>();
 
-        String query = """
-                SELECT\s
-                	CASE\s
-                		when tv.ds_numero = '0000' then 'branco'\s
-                		when tc.nome is null then 'nulo'
-                		else tc.nome\s
-                	END as nome_col,\s
-                	count(tv.id) contagem\s
-                FROM\s
-                	tb_voto tv\s
-                	left join tb_candidato tc on tv.ds_numero = tc.ds_numero\s
-                group by nome_col""";
+        String query =
+                "SELECT " +
+                        "    CASE " +
+                        "        WHEN tv.ds_numero = '0000' THEN 'branco' " +
+                        "        WHEN tc.nome IS NULL THEN 'nulo' " +
+                        "        ELSE tc.nome " +
+                        "    END AS nome_col, " +
+                        "    count(tv.id) contagem " +
+                        " FROM " +
+                        "    tb_voto tv " +
+                        "    LEFT JOIN tb_candidato tc ON tv.ds_numero = tc.ds_numero " +
+                        " GROUP BY nome_col";
         ResultSet result = db.executa_query(query, 1);
 
         try {
